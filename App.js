@@ -1,20 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+
+import Registrar from './pages/registrar';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Oi, sou a primeira tela</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+
+      <Registrar/>
+      <StatusBar style="light" />
+      
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
