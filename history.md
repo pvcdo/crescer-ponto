@@ -6,6 +6,11 @@ Começou antes de 30/09
 
 - criação da tela de registro de ponto
 
+03/10/2022
+
+- criação da pasta server, para criação do back-end com node + express
+- index do server e estrura de pastas do server
+
 ## instalações
 
 - react-native-community/geolocation: para pegar a geolocalização 
