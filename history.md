@@ -11,6 +11,11 @@ Começou antes de 30/09
 - criação da pasta server, para criação do back-end com node + express
 - index do server e estrura de pastas do server
 
+05/10/2022
+
+- exclusão da estrutura anterior do back-end em node+express
+- inicialização do back-end usando nest.js
+
 ## instalações
 
 - react-native-community/geolocation: para pegar a geolocalização 
