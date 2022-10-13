@@ -1,14 +1,19 @@
-const mongoose = require('../db/conn')
-const { Schema } = mongoose
+const { DataTypes } = require('sequelize')
+const db = require('../db/conn')
 
-const Registro = mongoose.model(
-  'Registro', 
-  new Schema({
-    tipo: {
-      type: String,
-      required: true
-    }
-  },{timestamps:true})
-)
+const Registro = db.define('Registro',{
+  tipo:{
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  data:{
+    type: DataTypes.DATEONLY,
+    allowNull:false
+  },
+  hora:{
+    type: DataTypes.TIME,
+    allowNull:false
+  }
+})
 
 module.exports = Registro

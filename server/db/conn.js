@@ -1,10 +1,20 @@
-const mongoose = require("mongoose")
+const { Sequelize } = require('sequelize')
 
-async function main(){
-  await mongoose.connect("mongodb://localhost:27017/crescer-ponto")
-  console.log("Conectou ao mongoose")
-}    
-  
-main().catch((err) => console.log(err))
-module.exports = mongoose
-  
+const sequelize = new Sequelize(
+  'crescer-ponto',
+  'root',
+  'Mysql#1',
+  {
+    host: 'localhost',
+    dialect: 'mysql'
+  }
+)
+
+try{
+  sequelize.authenticate()
+  console.log('Conectamos com o Sequelize!')
+}catch(e){
+  console.error('Não conseguimos conectar ao Sequelize... Erro: ' + e)
+}
+
+module.exports = sequelize

@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors')
+const conn = require('./db/conn')
 
 const app = express()
 
@@ -16,6 +17,11 @@ app.get('/',(req,res) => {
 
 app.use('/registro',require('./routes/RegistroRoutes'))
 
-app.listen(5000,()=>{
-  console.log("Estamos no back-end do app de pontos")
-})
+// conn.sync({force:true}) // resetando o banco
+conn.sync() // mantendo os dados do banco
+  .then(() => {
+    app.listen(5000,()=>{
+      console.log("Estamos rodando o back-end na porta 5000")
+    })
+  })
+  .catch(e => console.error('Erroooooo: ' + e))
