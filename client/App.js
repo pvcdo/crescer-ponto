@@ -1,4 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'react-native';
+//<StatusBar style='light' />
 import React from 'react';
 
 import Registrar from './pages/registrar';
@@ -8,8 +9,8 @@ export default function App() {
     <>
 
       <Registrar/>
-      <StatusBar style="light" />
-      
+      <StatusBar barStyle={'light-content'}/>
+
     </>
   );
 }
