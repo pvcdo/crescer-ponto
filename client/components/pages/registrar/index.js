@@ -6,6 +6,7 @@ import {
   ButtonSubmit,
   TextButtonSubmit
 } from "./styles";
+import api from '../../../utils/api';
 
 const styles = StyleSheet.create({
   tamLogo:{
@@ -15,18 +16,31 @@ const styles = StyleSheet.create({
 })
 
 function Registrar(){
+  
+  async function onFormSubmit(){
+    const data = await api.post('/registro/registrar')
+      .then(res => {
+        return res
+      })
+      .catch(res => {
+        return res
+      })
+
+      console.log(res)
+  }
+
   return(
     <Container>
+
       <Image
         style = {styles.tamLogo}
         source = {{uri: "https://cdn-icons-png.flaticon.com/512/17/17004.png"}}
       />
+
       <Input autoCapitalize="none"/>
       <Input secureTextEntry={true} />
-      <ButtonSubmit>
-        <TextButtonSubmit>
-          Registrar ponto
-        </TextButtonSubmit>
+      <ButtonSubmit onPress={onFormSubmit} >
+        <Text>Registrar ponto</Text>
       </ButtonSubmit>
 
     </Container>
