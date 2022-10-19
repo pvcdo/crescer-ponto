@@ -58,7 +58,7 @@ module.exports = class RegistroController{
       console.log("nova data: " + data)
 
       Registro.create({tipo,data,hora})
-      res.json({
+      return res.json({
         msg: "Registramos a " + tipo
       })
     }).catch(e => {

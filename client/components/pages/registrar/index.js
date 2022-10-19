@@ -7,6 +7,7 @@ import {
   TextButtonSubmit
 } from "./styles";
 import api from '../../../utils/api';
+//import axios from 'axios'
 
 const styles = StyleSheet.create({
   tamLogo:{
@@ -17,16 +18,14 @@ const styles = StyleSheet.create({
 
 function Registrar(){
   
-  async function onFormSubmit(){
-    const data = await api.post('/registro/registrar')
-      .then(res => {
-        return res
+  function onFormSubmit(){
+    api.post('/registro/registrar')
+      .then((res) => {
+        console.log("Entrou no then")
       })
-      .catch(res => {
-        return res
+      .catch((error) => {
+        console.log(JSON.stringify(error))
       })
-
-      console.log(res)
   }
 
   return(
