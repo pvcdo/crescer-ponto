@@ -8,6 +8,10 @@ module.exports = class RegistroController{
   }
 
   static async registrar(req,res){
+
+    /*res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
     const hora_completa = new Date()
 
     console.log(hora_completa)
@@ -65,7 +69,9 @@ module.exports = class RegistroController{
       return res.status(422).json({
         msg:"Temos um erro desconhecido!" + e.toString()
       })
-    })
+    })*/
+
+    console.log("Chegamos aqui")
     
   }
 

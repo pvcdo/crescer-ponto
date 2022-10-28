@@ -25,7 +25,10 @@ function Registrar(){
       })
       .catch((error) => {
         console.log(JSON.stringify(error))
+        console.error("Erro no formsubmit")
       })
+
+      //console.log("estamos no formsubmit")
   }
 
   return(
