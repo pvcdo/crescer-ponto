@@ -19,17 +19,31 @@ const styles = StyleSheet.create({
 function Registrar(){
   
   function onFormSubmit(){
+    
+    console.log("estamos no formsubmit")
+    
     api.post('/registro/registrar')
       .then((res) => {
-        console.log("Entrou no then")
+        console.log(res.data.msg)
       })
       .catch((error) => {
         console.log(JSON.stringify(error))
         console.error("Erro no formsubmit")
       })
-
-      //console.log("estamos no formsubmit")
   }
+
+  /*const onFormSubmit =async () => {
+    try {
+        const res = await api.post('/registro/registrar',{})
+        console.log(res)
+
+        //console.log("Entramos na função do front")
+        
+    } catch (error) {
+        console.log('Deu erro: ', JSON.stringify(error))
+    }
+    
+  }*/
 
   return(
     <Container>
