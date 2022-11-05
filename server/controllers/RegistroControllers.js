@@ -4,15 +4,21 @@ const {Op} = require('sequelize')
 module.exports = class RegistroController{
   
   static async pegarRegistros(req,res){
-    res.json("Retornando os registros de ponto")
+    Registro.findAll()
+      .then((registros) => {
+        res.status(200).json({
+          msg: "Todos os registros do Paulo",
+          registros
+        })
+      })
+      .catch((err)=>{
+        res.status(500).json({
+          msg: "algum erro no resgate dos registros"
+        })
+      })
   }
 
   static async registrar(req,res){
-
-    console.log("Começamos a registrar")
-
-    /*res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");*/
 
     const hora_completa = new Date()
 

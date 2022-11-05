@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, View, Text, Button } from 'react-native';
+import { Image, StyleSheet, View, Text, Button, ToastAndroid } from 'react-native';
 import { 
   Container,  
   Input,
@@ -25,25 +25,30 @@ function Registrar(){
     api.post('/registro/registrar')
       .then((res) => {
         console.log(res.data.msg)
+        ToastAndroid.show(res.data.msg,ToastAndroid.LONG)
       })
       .catch((error) => {
         console.log(JSON.stringify(error))
         console.error("Erro no formsubmit")
       })
-  }
-
-  /*const onFormSubmit =async () => {
-    try {
-        const res = await api.post('/registro/registrar',{})
-        console.log(res)
-
-        //console.log("Entramos na função do front")
-        
-    } catch (error) {
-        console.log('Deu erro: ', JSON.stringify(error))
-    }
     
-  }*/
+  }
+  
+  function pegarRegistros(){
+    
+    console.log("estamos no formsubmit")
+    
+    api.get('/registro/pegarRegistros')
+      .then((res) => {
+        console.log(JSON.stringify(res.data.registros))
+        ToastAndroid.show(res.data.msg,ToastAndroid.LONG)
+      })
+      .catch((error) => {
+        console.log(JSON.stringify(error))
+        console.error("Erro no pegarRegistros")
+      })
+    
+  }
 
   return(
     <Container>
@@ -58,6 +63,10 @@ function Registrar(){
       <ButtonSubmit onPress={onFormSubmit} >
         <Text>Registrar ponto</Text>
       </ButtonSubmit>
+      
+      {/*<ButtonSubmit onPress={pegarRegistros} >
+        <Text>Retornar Pontos</Text>
+  </ButtonSubmit>*/}
 
     </Container>
     
